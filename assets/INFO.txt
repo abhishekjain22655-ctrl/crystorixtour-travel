@@ -1,0 +1,73 @@
+Update the existing website with the following official company information. Replace all placeholder, demo, and outdated company details wherever they appear.
+
+Company Name: CRYSTORIX TOUR AND TRAVEL
+
+Address: 301, 3rd Floor, Rama Market, Rani Bagh, Pitampura, North West Delhi, Delhi – 110034, India
+
+Phone Number: +91 9711875177
+
+Email: Crystorixservicespvtltd@gmail.com
+
+Ensure these details are consistent across the website, including the navbar, About Us, Contact Us, footer, enquiry forms, and relevant website metadata. Make the phone number clickable, connect the email address to the default email application, and link the WhatsApp contact button to +91 9711875177.
+
+Do not change the existing design, UI/UX, animations, video backgrounds, frame settings, or website functionality. Only update the company information and replace outdated details with the correct information provided above. Do not invent any additional company details.
+
+
+**Company Name:** CRYSTORIX TOUR AND TRAVEL
+
+**About Us:**
+CRYSTORIX TOUR AND TRAVEL helps travellers plan memorable journeys across India and international destinations. We aim to make travel planning convenient by helping customers explore destinations, discover holiday options, and organize trips according to their preferences, interests, and budget.
+
+**Our Mission:**
+Our mission is to make travel planning simpler, more convenient, and more enjoyable by helping customers find suitable travel experiences for holidays, family vacations, honeymoons, and international adventures.
+
+**Our Vision:**
+Our vision is to become a trusted choice for travellers by focusing on customer satisfaction, personalized travel planning, transparent communication, and memorable travel experiences.
+
+**Why Choose Us?**
+- Personalized Travel Planning: Travel options tailored to individual preferences and requirements.
+- Domestic and International Travel: Explore destinations across India and around the world.
+- Holiday Options for Everyone: Travel ideas for couples, families, groups, and individual travellers.
+- Convenient Planning: Assistance with organizing itineraries and travel requirements.
+- Customer-Focused Service: Clear communication and attention to customer needs.
+- Flexible Travel Choices: Explore different destinations and holiday options according to your preferences and budget.
+
+**Our Services:**
+- Domestic Holiday Packages
+- International Tour Packages
+- Honeymoon Packages
+- Family Holiday Packages
+- Group Tours
+- Customized Travel Planning
+- Flight Booking Assistance
+- Hotel Booking Assistance
+- Cruise Holidays
+- Visa Assistance
+
+**Our Travel Philosophy:**
+We believe every journey should be an opportunity to discover new places, experience different cultures, spend quality time with loved ones, and create lasting memories. Our goal is to help customers turn their travel ideas into well-planned journeys.
+
+**Popular Travel Categories:**
+- Adventure and Nature Escapes
+- Luxury Holidays
+- Beach Destinations
+- Cultural and Heritage Tours
+- Romantic Getaways
+- Family-Friendly Holidays
+- International City Experiences
+- Cruise Experiences
+
+**Contact Information:**
+- Company: CRYSTORIX TOUR AND TRAVEL
+- Address: 301, 3rd Floor, Rama Market, Rani Bagh, Pitampura, North West Delhi, Delhi – 110034, India
+- Phone: +91 9711875177
+- Email: Crystorixservicespvtltd@gmail.com
+
+**Call to Action:**
+“Your Journey Begins with Crystorix.”
+
+Supporting text: “Discover exciting destinations, explore personalized holiday options, and start planning your next adventure with CRYSTORIX TOUR AND TRAVEL.”
+
+Buttons: “Explore Destinations”, “Discover Holiday Packages”, and “Plan Your Trip”.
+
+Use this content in the appropriate Home, About Us, Our Mission, Our Vision, Why Choose Us, Our Services, Travel Categories, and Contact Us sections. Keep the writing professional, welcoming, and customer-focused. Do not present unverified achievements, awards, customer reviews, years of experience, or company history as facts.

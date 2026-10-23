@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #263442;
+  --card: #FFFFFF;
+  --card-foreground: #263442;
+  --muted: #F5F7FA;
+  --muted-foreground: #556877;
+  --border: #E4E9EE;
+  
+  /* Crystorix Corporate Palette */
+  --navy: #12304A;
+  --teal: #147D83;
+  --teal-hover: #0E6368;
+  --gold: #D8B779;
+  --bg-main: #FFFFFF;
+  --bg-alt: #F5F7FA;
+  --charcoal: #263442;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+/* Form input helpers */
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Editorial Modern Typography */
+.font-serif-luxury {
+  font-family: var(--font-serif), Georgia, Cambria, serif;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle corporate glassmorphism */
+.glass-nav-navy {
+  background: rgba(18, 48, 74, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card-light {
+  background: #FFFFFF;
+  border: 1px solid #E4E9EE;
+  box-shadow: 0 4px 20px -2px rgba(18, 48, 74, 0.06);
+}
+
+/* Custom smooth corporate scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F7FA;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #147D83;
+}
+
+/* Image zoom effect on hover */
+.card-zoom-image {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .card-zoom-image {
+  transform: scale(1.04);
+}
