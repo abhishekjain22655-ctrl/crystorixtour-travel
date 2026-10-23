@@ -106,9 +106,11 @@ export async function POST(request: NextRequest) {
       };
 
       // Send instant email notification to Admin
-      sendAdminEnquiryNotification(mockEnquiry).catch((err) =>
-        console.warn('Email notify error (local mode):', err)
-      );
+      try {
+        await sendAdminEnquiryNotification(mockEnquiry);
+      } catch (err) {
+        console.warn('Email notify error (local mode):', err);
+      }
 
       return NextResponse.json({
         saved: true,
@@ -140,9 +142,11 @@ export async function POST(request: NextRequest) {
     const savedDoc = newEnquiry.toJSON();
 
     // Send instant email notification to Admin
-    sendAdminEnquiryNotification(savedDoc).catch((err) =>
-      console.warn('Email notify error (mongodb mode):', err)
-    );
+    try {
+      await sendAdminEnquiryNotification(savedDoc);
+    } catch (err) {
+      console.warn('Email notify error (mongodb mode):', err);
+    }
 
     return NextResponse.json({
       saved: true,

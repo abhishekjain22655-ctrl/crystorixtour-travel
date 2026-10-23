@@ -47,6 +47,7 @@ export async function sendAdminEnquiryNotification(enquiry: CustomerEnquiry | an
       };
     }
 
+    const cleanClientEmail = enquiry.email && enquiry.email.trim() ? enquiry.email.trim() : undefined;
     const cleanPhoneDigits = (enquiry.phone || '').replace(/\D/g, '');
     const whatsappLink = cleanPhoneDigits ? `https://wa.me/${cleanPhoneDigits.length === 10 ? '91' + cleanPhoneDigits : cleanPhoneDigits}` : '';
     const phoneCallLink = enquiry.phone ? `tel:${enquiry.phone.replace(/\s+/g, '')}` : '';
@@ -94,11 +95,10 @@ export async function sendAdminEnquiryNotification(enquiry: CustomerEnquiry | an
                 <span class="label">Phone Number</span>
                 <span class="value">${enquiry.phone}</span>
               </div>
-              ${enquiry.email ? `
               <div class="row">
                 <span class="label">Email Address</span>
-                <span class="value"><a href="mailto:${enquiry.email}" style="color: #154D4F;">${enquiry.email}</a></span>
-              </div>` : ''}
+                <span class="value">${cleanClientEmail ? `<a href="mailto:${cleanClientEmail}" style="color: #154D4F;">${cleanClientEmail}</a>` : '<em style="color: #64748B; font-weight: normal;">Not provided (Phone-only enquiry)</em>'}</span>
+              </div>
               <div class="row">
                 <span class="label">Destination</span>
                 <span class="value" style="color: #C25E34;">${enquiry.destinationPreference}</span>
@@ -159,7 +159,7 @@ export async function sendAdminEnquiryNotification(enquiry: CustomerEnquiry | an
       to: adminEmail,
       subject: `🛎️ New Travel Enquiry: ${enquiry.fullName} (${enquiry.destinationPreference})`,
       html: htmlContent,
-      replyTo: enquiry.email || undefined,
+      replyTo: cleanClientEmail,
     });
 
     console.log('✅ [EMAIL] Admin notification sent successfully:', info.messageId);

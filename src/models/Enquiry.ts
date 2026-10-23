@@ -9,7 +9,7 @@ const EnquirySchema = new Schema<IEnquiryDocument>(
   {
     fullName: { type: String, required: true },
     phone: { type: String, required: true, index: true },
-    email: { type: String, required: true },
+    email: { type: String, required: false, default: '' },
     tripType: {
       type: String,
       enum: ['domestic', 'international'],
