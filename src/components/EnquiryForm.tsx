@@ -5,11 +5,30 @@ import { Send, CheckCircle2, AlertCircle, Phone, MessageCircle, Calendar, Users,
 import { saveNewEnquiry } from '@/lib/storage';
 import { agencyConfig, getWhatsAppLink } from '@/config/agency';
 
+export const budgetOptions = [
+  'Under ₹35,000',
+  '₹35,000 - ₹75,000',
+  '₹75,000 - ₹1,50,000',
+  '₹1,50,000 - ₹3,00,000',
+  '₹3,00,000 - ₹5,00,000',
+  '₹5,00,000+ (Luxury & Bespoke)',
+];
+
+export function getMatchingBudget(price?: number): string {
+  if (!price || price < 35000) return 'Under ₹35,000';
+  if (price <= 75000) return '₹35,000 - ₹75,000';
+  if (price <= 150000) return '₹75,000 - ₹1,50,000';
+  if (price <= 300000) return '₹1,50,000 - ₹3,00,000';
+  if (price <= 500000) return '₹3,00,000 - ₹5,00,000';
+  return '₹5,00,000+ (Luxury & Bespoke)';
+}
+
 interface EnquiryFormProps {
   originPackageSlug?: string;
   originPackageTitle?: string;
   defaultDestination?: string;
   defaultTripType?: 'domestic' | 'international';
+  defaultBudget?: string;
   onSuccess?: () => void;
 }
 
@@ -18,8 +37,13 @@ export default function EnquiryForm({
   originPackageTitle,
   defaultDestination = '',
   defaultTripType = 'domestic',
+  defaultBudget,
   onSuccess,
 }: EnquiryFormProps) {
+  const initialBudget = defaultBudget && budgetOptions.includes(defaultBudget)
+    ? defaultBudget
+    : budgetOptions[0];
+
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -30,7 +54,7 @@ export default function EnquiryForm({
     travelDateApprox: '',
     adultsCount: 2,
     childrenCount: 0,
-    approxBudgetINR: '₹50,000 - ₹1,00,000',
+    approxBudgetINR: initialBudget,
     additionalNotes: '',
   });
 
@@ -38,15 +62,6 @@ export default function EnquiryForm({
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [submittedEnquiryId, setSubmittedEnquiryId] = useState<string | null>(null);
-
-  const budgetOptions = [
-    'Under ₹35,000',
-    '₹35,000 - ₹75,000',
-    '₹75,000 - ₹1,50,000',
-    '₹1,50,000 - ₹3,00,000',
-    '₹3,00,000 - ₹5,00,000',
-    '₹5,00,000+ (Luxury & Bespoke)',
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

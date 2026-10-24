@@ -21,7 +21,7 @@ import { TravelPackage } from '@/types/travel';
 import { agencyConfig, getPhoneLink } from '@/config/agency';
 import { getPackageBySlug, getPublishedPackages, fetchPackagesFromMongoDB } from '@/lib/storage';
 import PackageCard from '@/components/PackageCard';
-import EnquiryForm from '@/components/EnquiryForm';
+import EnquiryForm, { getMatchingBudget } from '@/components/EnquiryForm';
 
 interface PackageDetailClientProps {
   slug: string;
@@ -468,6 +468,7 @@ export default function PackageDetailClient({
                 originPackageTitle={pkg.title}
                 defaultDestination={pkg.destinationName}
                 defaultTripType={pkg.destinationType}
+                defaultBudget={getMatchingBudget(pkg.startingPriceINR)}
               />
             </div>
           </div>
