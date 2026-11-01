@@ -6,6 +6,15 @@ import EnquiryForm from '@/components/EnquiryForm';
 export const metadata = {
   title: 'Plan Your Custom Trip | Tailor-Made Holiday Enquiry',
   description: 'Design your dream holiday with our destination specialists. Custom itineraries for families, couples, and groups across India and global destinations.',
+  alternates: {
+    canonical: '/plan-your-trip',
+  },
+  openGraph: {
+    title: 'Plan Your Custom Trip | Crystorix Tour and Travel',
+    description: 'Design your tailored holiday itinerary across India and international destinations with Crystorix.',
+    url: '/plan-your-trip',
+    type: 'website',
+  },
 };
 
 export default function PlanYourTripPage() {

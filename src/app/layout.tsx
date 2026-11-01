@@ -18,7 +18,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://tonfrosolution-tourtravel.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://crystorixtourtravel.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -82,6 +82,7 @@ const jsonLd = {
       description: agencyConfig.description,
       telephone: agencyConfig.contact.primaryPhone,
       email: agencyConfig.contact.email,
+      hasMap: agencyConfig.contact.officeAddress.mapDirectionUrl,
       priceRange: '₹₹₹',
       currenciesAccepted: 'INR',
       paymentAccepted: 'Cash, Credit Card, Bank Transfer, UPI',

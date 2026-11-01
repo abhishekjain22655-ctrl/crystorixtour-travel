@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Clock, ShieldCheck, HelpCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Clock, ShieldCheck, HelpCircle, Navigation } from 'lucide-react';
 import { agencyConfig, getPhoneLink, getWhatsAppLink } from '@/config/agency';
 import { faqData } from '@/data/faq';
 import EnquiryForm from '@/components/EnquiryForm';
@@ -7,11 +7,61 @@ import EnquiryForm from '@/components/EnquiryForm';
 export const metadata = {
   title: `Contact Us & Head Office | ${agencyConfig.companyName}`,
   description: `Get in touch with ${agencyConfig.companyName}. Office address in Pitampura, New Delhi. Official phone: ${agencyConfig.contact.displayPhone}, Email: ${agencyConfig.contact.email}.`,
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: `Contact Us & Head Office | ${agencyConfig.companyName}`,
+    description: `Visit our Pitampura, New Delhi office or speak with our travel concierge. Call ${agencyConfig.contact.displayPhone}.`,
+    url: '/contact',
+    type: 'website',
+  },
 };
 
 export default function ContactPage() {
+  const contactJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'TravelAgency'],
+    '@id': `${agencyConfig.seo.siteUrl}/contact#office`,
+    name: agencyConfig.companyName,
+    legalName: agencyConfig.legalEntityName,
+    url: `${agencyConfig.seo.siteUrl}/contact`,
+    telephone: agencyConfig.contact.primaryPhone,
+    email: agencyConfig.contact.email,
+    image: agencyConfig.seo.ogImage,
+    hasMap: agencyConfig.contact.officeAddress.mapDirectionUrl,
+    priceRange: '₹₹₹',
+    currenciesAccepted: 'INR',
+    paymentAccepted: 'Cash, Credit Card, Bank Transfer, UPI',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: agencyConfig.contact.officeAddress.street,
+      addressLocality: agencyConfig.contact.officeAddress.city,
+      addressRegion: agencyConfig.contact.officeAddress.state,
+      postalCode: agencyConfig.contact.officeAddress.pincode,
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 28.6989,
+      longitude: 77.1384,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '09:30',
+        closes: '19:00',
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#263442] py-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-16">
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -132,9 +182,20 @@ export default function ContactPage() {
                   Landmark: {agencyConfig.contact.officeAddress.landmark}
                 </p>
               )}
-              <p className="text-xs text-[#556877] pt-1">
-                Contact: <a href={getPhoneLink()} className="font-semibold text-[#147D83] hover:underline">{agencyConfig.contact.displayPhone}</a>
-              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs">
+                <span>
+                  Contact: <a href={getPhoneLink()} className="font-semibold text-[#147D83] hover:underline">{agencyConfig.contact.displayPhone}</a>
+                </span>
+                <a
+                  href={agencyConfig.contact.officeAddress.mapDirectionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#147D83] hover:underline inline-flex items-center gap-1"
+                >
+                  <Navigation className="w-3.5 h-3.5 text-[#D8B779]" />
+                  <span>Get Directions →</span>
+                </a>
+              </div>
             </div>
 
             {/* Hours & Visiting Info */}
@@ -152,6 +213,44 @@ export default function ContactPage() {
               <p className="text-xs text-[#556877] pt-1">
                 For in-person trip planning consultations at our Pitampura office, prior scheduling via phone or WhatsApp is recommended.
               </p>
+            </div>
+          </div>
+
+          {/* Interactive Google Map Embed & Navigation */}
+          <div className="space-y-4 pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h3 className="text-base font-bold text-[#12304A] font-serif-luxury flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#147D83]" />
+                  <span>Google Maps Location & Navigation</span>
+                </h3>
+                <p className="text-xs text-[#556877] mt-0.5">
+                  Visit us at Rama Market, Rani Bagh, Pitampura, New Delhi — centrally situated with convenient parking and metro access.
+                </p>
+              </div>
+              <a
+                href={agencyConfig.contact.officeAddress.mapDirectionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#147D83] hover:bg-[#0E6368] text-white text-xs font-bold uppercase tracking-wider shadow-sm hover:shadow transition-all group shrink-0"
+              >
+                <Navigation className="w-4 h-4 group-hover:scale-110 transition-transform text-[#D8B779]" />
+                <span>Get Directions on Google Maps</span>
+              </a>
+            </div>
+
+            <div className="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#E4E9EE] shadow-xs bg-[#F5F7FA]">
+              <iframe
+                title={`${agencyConfig.companyName} Head Office Google Map`}
+                src={agencyConfig.contact.officeAddress.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
             </div>
           </div>
 

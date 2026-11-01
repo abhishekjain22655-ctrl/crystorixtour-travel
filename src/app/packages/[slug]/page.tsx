@@ -53,7 +53,7 @@ async function PackageDetailResolver({ params }: { params: Promise<{ slug: strin
   const { slug } = await params;
   const initialPackage = packagesData.find((p) => p.slug === slug);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://tonfrosolution-tourtravel.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://crystorixtourtravel.vercel.app';
 
   const tripJsonLd = initialPackage
     ? {

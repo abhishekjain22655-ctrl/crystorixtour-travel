@@ -23,6 +23,15 @@ import { agencyConfig, getPhoneLink, getWhatsAppLink } from '@/config/agency';
 export const metadata = {
   title: `About Us | ${agencyConfig.companyName}`,
   description: `Learn about ${agencyConfig.companyName}, our mission, vision, services, and commitment to memorable domestic and international travel planning.`,
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: `About Us | ${agencyConfig.companyName}`,
+    description: `Discover Crystorix Tour and Travel — verified travel concierge based in Pitampura, New Delhi.`,
+    url: '/about',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {

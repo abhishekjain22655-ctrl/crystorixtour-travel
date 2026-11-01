@@ -40,7 +40,8 @@ export interface AgencyConfig {
       pincode: string;
       country: string;
       landmark?: string;
-      mapEmbedUrl?: string;
+      mapEmbedUrl: string;
+      mapDirectionUrl: string;
     };
     branchOffices?: Array<{
       city: string;
@@ -113,6 +114,10 @@ export const agencyConfig: AgencyConfig = {
       pincode: "110034",
       country: "India",
       landmark: "Rama Market, Rani Bagh",
+      mapEmbedUrl:
+        "https://maps.google.com/maps?q=301%2C%203rd%20Floor%2C%20Rama%20Market%2C%20Rani%20Bagh%2C%20Pitampura%2C%20Delhi%20110034&t=&z=16&ie=UTF8&iwloc=&output=embed",
+      mapDirectionUrl:
+        "https://www.google.com/maps/dir/?api=1&destination=301,+3rd+Floor,+Rama+Market,+Rani+Bagh,+Pitampura,+Delhi+110034",
     },
     branchOffices: [
       {
@@ -140,7 +145,7 @@ export const agencyConfig: AgencyConfig = {
   },
 
   seo: {
-    siteUrl: "https://crystorix.com",
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://crystorixtourtravel.vercel.app",
     defaultTitle: "Crystorix Tour and Travel | Domestic & International Holidays",
     titleTemplate: "%s | Crystorix Tour and Travel",
     defaultDescription:

@@ -2,14 +2,14 @@ import { MetadataRoute } from 'next';
 import { agencyConfig } from '@/config/agency';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://tonfrosolution-tourtravel.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://crystorixtourtravel.vercel.app';
 
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/api/', '/_next/'],
+        disallow: ['/admin', '/api/'],
       },
       {
         userAgent: 'Googlebot',

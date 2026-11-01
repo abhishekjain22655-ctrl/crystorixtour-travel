@@ -3,7 +3,7 @@ import { packagesData } from '@/data/packages';
 import { agencyConfig } from '@/config/agency';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://tonfrosolution-tourtravel.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || agencyConfig.seo.siteUrl || 'https://crystorixtourtravel.vercel.app';
   const currentDate = new Date();
 
   // Static marketing & listing pages

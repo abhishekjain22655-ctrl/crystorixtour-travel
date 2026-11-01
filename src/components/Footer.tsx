@@ -118,11 +118,19 @@ export default function Footer() {
               Contact & Desk
             </h4>
             <ul className="space-y-3 text-xs text-slate-300">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#D8B779] shrink-0 mt-0.5" />
-                <span className="text-slate-300 font-light">
-                  {agencyConfig.contact.branchOffices?.[0]?.address || `${agencyConfig.contact.officeAddress.street}, ${agencyConfig.contact.officeAddress.locality}, ${agencyConfig.contact.officeAddress.city}, Delhi – ${agencyConfig.contact.officeAddress.pincode}, India`}
-                </span>
+              <li>
+                <a
+                  href={agencyConfig.contact.officeAddress.mapDirectionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 hover:text-white group transition-colors"
+                  title="Open Crystorix office location on Google Maps"
+                >
+                  <MapPin className="w-4 h-4 text-[#D8B779] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <span className="text-slate-300 font-light group-hover:underline">
+                    {agencyConfig.contact.branchOffices?.[0]?.address || `${agencyConfig.contact.officeAddress.street}, ${agencyConfig.contact.officeAddress.locality}, ${agencyConfig.contact.officeAddress.city}, Delhi – ${agencyConfig.contact.officeAddress.pincode}, India`}
+                  </span>
+                </a>
               </li>
               <li>
                 <a href={getPhoneLink()} className="flex items-center gap-2.5 hover:text-[#D8B779] transition-colors">
