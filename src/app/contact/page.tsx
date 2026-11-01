@@ -167,22 +167,34 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Headquarters */}
-            <div className="space-y-3 p-5 rounded-xl bg-[#F5F7FA] border border-[#E4E9EE]">
+            <div className="space-y-4 p-6 rounded-xl bg-[#F5F7FA] border border-[#E4E9EE]">
               <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12304A]">
                 <MapPin className="w-4 h-4 text-[#D8B779]" />
-                <span>Head Office — New Delhi</span>
+                <span>Head Office — Exact Physical Address</span>
               </div>
-              <p className="text-xs text-[#263442] leading-relaxed">
-                {agencyConfig.contact.officeAddress.street}, {agencyConfig.contact.officeAddress.locality},{' '}
-                {agencyConfig.contact.officeAddress.city}, {agencyConfig.contact.officeAddress.state} –{' '}
-                {agencyConfig.contact.officeAddress.pincode}, {agencyConfig.contact.officeAddress.country}
-              </p>
-              {agencyConfig.contact.officeAddress.landmark && (
-                <p className="text-xs font-medium text-[#147D83]">
-                  Landmark: {agencyConfig.contact.officeAddress.landmark}
+              <div className="space-y-2 text-xs text-[#263442]">
+                <p className="font-bold text-[#12304A] text-sm">
+                  {agencyConfig.companyName}
                 </p>
-              )}
-              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs">
+                <div className="p-3.5 bg-white rounded-xl border border-[#E4E9EE] shadow-2xs space-y-1">
+                  <p className="font-bold text-[#147D83] text-sm flex items-center gap-1.5">
+                    <span>📍</span>
+                    <span>301, 3rd Floor</span>
+                  </p>
+                  <p className="font-semibold text-[#12304A]">
+                    Rama Market, Rani Bagh, Pitampura
+                  </p>
+                  <p className="text-[#556877]">
+                    North West Delhi, Delhi – 110034, India
+                  </p>
+                  <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                    <span className="font-medium text-[#147D83]">
+                      Landmark: Rama Market, Rani Bagh
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1 flex flex-wrap items-center gap-4 text-xs">
                 <span>
                   Contact: <a href={getPhoneLink()} className="font-semibold text-[#147D83] hover:underline">{agencyConfig.contact.displayPhone}</a>
                 </span>
@@ -220,12 +232,14 @@ export default function ContactPage() {
           <div className="space-y-4 pt-2">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <h3 className="text-base font-bold text-[#12304A] font-serif-luxury flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#147D83]" />
-                  <span>Google Maps Location & Navigation</span>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#147D83]/10 text-[#147D83] text-[11px] font-bold uppercase tracking-wider mb-1">
+                  <MapPin className="w-3 h-3" /> Exact Pinned Location
+                </div>
+                <h3 className="text-lg font-bold text-[#12304A] font-serif-luxury">
+                  Google Maps Office Navigation
                 </h3>
-                <p className="text-xs text-[#556877] mt-0.5">
-                  Visit us at Rama Market, Rani Bagh, Pitampura, New Delhi — centrally situated with convenient parking and metro access.
+                <p className="text-xs text-[#263442] mt-0.5">
+                  <strong>Exact Address:</strong> 301, 3rd Floor, Rama Market, Rani Bagh, Pitampura, North West Delhi, Delhi – 110034, India
                 </p>
               </div>
               <a
@@ -239,9 +253,35 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#E4E9EE] shadow-xs bg-[#F5F7FA]">
+            {/* Map Container with Floating Verified Address Card */}
+            <div className="relative w-full h-[420px] sm:h-[480px] rounded-2xl overflow-hidden border border-[#E4E9EE] shadow-sm bg-[#F5F7FA]">
+              {/* Floating Address Overlay Card */}
+              <div className="absolute top-4 left-4 z-10 max-w-[280px] sm:max-w-xs bg-white/95 backdrop-blur-md p-4 rounded-xl border border-[#E4E9EE] shadow-lg text-xs space-y-1.5">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="uppercase tracking-wider font-bold text-[10px] text-[#147D83]">Official Office Location</span>
+                </div>
+                <div className="font-bold text-[#12304A] text-xs font-serif-luxury">
+                  {agencyConfig.companyName}
+                </div>
+                <div className="text-[#263442] text-[11px] leading-relaxed border-y border-slate-100 py-1.5 my-1 space-y-0.5">
+                  <p className="font-bold text-[#147D83]">Suite 301, 3rd Floor</p>
+                  <p className="font-semibold text-[#12304A]">Rama Market, Rani Bagh</p>
+                  <p className="text-[#556877]">Pitampura, North West Delhi – 110034</p>
+                </div>
+                <a
+                  href={agencyConfig.contact.officeAddress.mapDirectionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-[#147D83] hover:text-[#0E6368] hover:underline pt-0.5"
+                >
+                  <Navigation className="w-3 h-3 text-[#D8B779]" />
+                  <span>Start Navigation →</span>
+                </a>
+              </div>
+
               <iframe
-                title={`${agencyConfig.companyName} Head Office Google Map`}
+                title={`${agencyConfig.companyName} Head Office Exact Location`}
                 src={agencyConfig.contact.officeAddress.mapEmbedUrl}
                 width="100%"
                 height="100%"

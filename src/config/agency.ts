@@ -33,6 +33,8 @@ export interface AgencyConfig {
     supportEmail: string;
     workingHours: string;
     officeAddress: {
+      suite?: string;
+      building?: string;
       street: string;
       locality: string;
       city: string;
@@ -40,6 +42,7 @@ export interface AgencyConfig {
       pincode: string;
       country: string;
       landmark?: string;
+      fullAddress?: string;
       mapEmbedUrl: string;
       mapDirectionUrl: string;
     };
@@ -107,6 +110,8 @@ export const agencyConfig: AgencyConfig = {
     supportEmail: "Crystorixservicespvtltd@gmail.com",
     workingHours: "Monday – Saturday: 9:30 AM to 7:00 PM IST",
     officeAddress: {
+      suite: "Office No. 301, 3rd Floor",
+      building: "Rama Market",
       street: "301, 3rd Floor, Rama Market, Rani Bagh",
       locality: "Pitampura, North West Delhi",
       city: "New Delhi",
@@ -114,10 +119,11 @@ export const agencyConfig: AgencyConfig = {
       pincode: "110034",
       country: "India",
       landmark: "Rama Market, Rani Bagh",
+      fullAddress: "301, 3rd Floor, Rama Market, Rani Bagh, Pitampura, North West Delhi, Delhi – 110034, India",
       mapEmbedUrl:
-        "https://maps.google.com/maps?q=301%2C%203rd%20Floor%2C%20Rama%20Market%2C%20Rani%20Bagh%2C%20Pitampura%2C%20Delhi%20110034&t=&z=16&ie=UTF8&iwloc=&output=embed",
+        "https://maps.google.com/maps?q=301%2C%203rd%20Floor%2C%20Rama%20Market%2C%20Rani%20Bagh%2C%20Pitampura%2C%20North%20West%20Delhi%2C%20Delhi%20110034&t=&z=17&ie=UTF8&iwloc=&output=embed",
       mapDirectionUrl:
-        "https://www.google.com/maps/dir/?api=1&destination=301,+3rd+Floor,+Rama+Market,+Rani+Bagh,+Pitampura,+Delhi+110034",
+        "https://www.google.com/maps/dir/?api=1&destination=301,+3rd+Floor,+Rama+Market,+Rani+Bagh,+Pitampura,+North+West+Delhi,+Delhi+110034",
     },
     branchOffices: [
       {
