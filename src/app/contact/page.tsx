@@ -25,6 +25,7 @@ export default function ContactPage() {
     '@id': `${agencyConfig.seo.siteUrl}/contact#office`,
     name: agencyConfig.companyName,
     legalName: agencyConfig.legalEntityName,
+    alternateName: agencyConfig.brandAliases,
     url: `${agencyConfig.seo.siteUrl}/contact`,
     telephone: agencyConfig.contact.primaryPhone,
     email: agencyConfig.contact.email,
@@ -175,6 +176,9 @@ export default function ContactPage() {
               <div className="space-y-2 text-xs text-[#263442]">
                 <p className="font-bold text-[#12304A] text-sm">
                   {agencyConfig.companyName}
+                </p>
+                <p className="text-[11px] text-[#556877]">
+                  A brand unit of {agencyConfig.legalEntityName}
                 </p>
                 <div className="p-3.5 bg-white rounded-xl border border-[#E4E9EE] shadow-2xs space-y-1">
                   <p className="font-bold text-[#147D83] text-sm flex items-center gap-1.5">

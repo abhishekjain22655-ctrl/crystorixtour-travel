@@ -77,6 +77,7 @@ const jsonLd = {
       '@id': `${siteUrl}/#agency`,
       name: agencyConfig.companyName,
       legalName: agencyConfig.legalEntityName,
+      alternateName: agencyConfig.brandAliases,
       url: siteUrl,
       image: agencyConfig.seo.ogImage,
       description: agencyConfig.description,
@@ -121,6 +122,7 @@ const jsonLd = {
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
       name: agencyConfig.companyName,
+      alternateName: agencyConfig.brandAliases,
       description: agencyConfig.seo.defaultDescription,
       publisher: {
         '@id': `${siteUrl}/#agency`,

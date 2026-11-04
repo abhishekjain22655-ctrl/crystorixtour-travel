@@ -16,6 +16,7 @@
 export interface AgencyConfig {
   companyName: string;
   legalEntityName: string;
+  brandAliases: string[];
   shortName: string;
   tagline: string;
   description: string;
@@ -92,11 +93,22 @@ export interface AgencyConfig {
 
 export const agencyConfig: AgencyConfig = {
   companyName: "CRYSTORIX TOUR AND TRAVEL",
-  legalEntityName: "CRYSTORIX TOUR AND TRAVEL",
+  legalEntityName: "CRYSTORIX SERVICES PRIVATE LIMITED",
+  brandAliases: [
+    "Crystorix Tour and Travel",
+    "Crystorix Travel",
+    "Crystorix Tours",
+    "Crystorix Holidays",
+    "Crystorix Tour & Travel",
+    "Crystorix",
+    "Crystorix Services",
+    "Crystorix Services Private Limited",
+    "Crystorix Services Pvt Ltd",
+  ],
   shortName: "Crystorix",
   tagline: "Your Journey Begins with Crystorix.",
   description:
-    "CRYSTORIX TOUR AND TRAVEL helps travellers plan memorable journeys across India and international destinations. We aim to make travel planning convenient by helping customers explore destinations, discover holiday options, and organize trips according to their preferences, interests, and budget.",
+    "CRYSTORIX TOUR AND TRAVEL (operated by Crystorix Services Private Limited) helps travellers plan memorable journeys across India and international destinations. We aim to make travel planning convenient by helping customers explore destinations, discover holiday options, and organize trips according to their preferences, interests, and budget.",
   establishedYear: 2024,
 
   contact: {
@@ -136,11 +148,11 @@ export const agencyConfig: AgencyConfig = {
 
   accreditations: {
     gstNumberPlaceholder: "Registered in New Delhi, India",
-    cinPlaceholder: "Tour and Travel Agency",
+    cinPlaceholder: "U63040DL2024PTC (Crystorix Services Private Limited)",
     iataMember: false,
     ministryOfTourismApproved: false,
-    registeredAgencyBadgeText: "Registered Tour & Travel Operator • New Delhi, India",
-    trustNote: "Official verified details for CRYSTORIX TOUR AND TRAVEL",
+    registeredAgencyBadgeText: "Registered Tour & Travel Operator • Crystorix Services Pvt Ltd",
+    trustNote: "Official verified travel brand CRYSTORIX TOUR AND TRAVEL, operated by Crystorix Services Private Limited",
   },
 
   socials: {
@@ -155,11 +167,19 @@ export const agencyConfig: AgencyConfig = {
     defaultTitle: "Crystorix Tour and Travel | Domestic & International Holidays",
     titleTemplate: "%s | Crystorix Tour and Travel",
     defaultDescription:
-      "Explore domestic and international holiday destinations with Crystorix Tour and Travel. Discover curated travel packages and contact our team to enquire about your next trip.",
+      "Explore domestic and international holiday destinations with Crystorix Tour and Travel (Crystorix Services Private Limited). Discover curated travel packages, customized tour itineraries, and contact our Pitampura, New Delhi travel desk to plan your dream vacation.",
     ogImage: "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=1200&auto=format&fit=crop",
     keywords: [
       "Crystorix Tour and Travel",
       "Crystorix Travel",
+      "Crystorix Tours",
+      "Crystorix Holidays",
+      "Crystorix Tour & Travel",
+      "Crystorix",
+      "Crystorix Services",
+      "Crystorix Services Private Limited",
+      "Crystorix Services Pvt Ltd",
+      "Crystorix Pitampura",
       "travel agency New Delhi",
       "Pitampura travel agency",
       "domestic holiday packages",

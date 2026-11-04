@@ -88,6 +88,26 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#263442] py-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            '@id': `${agencyConfig.seo.siteUrl}/about#webpage`,
+            url: `${agencyConfig.seo.siteUrl}/about`,
+            name: `About ${agencyConfig.companyName}`,
+            description: agencyConfig.seo.defaultDescription,
+            mainEntity: {
+              '@type': 'TravelAgency',
+              name: agencyConfig.companyName,
+              legalName: agencyConfig.legalEntityName,
+              alternateName: agencyConfig.brandAliases,
+              url: agencyConfig.seo.siteUrl,
+            },
+          }),
+        }}
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-8 space-y-16">
         {/* Header / About Us */}
         <div className="max-w-3xl space-y-4">
@@ -229,9 +249,14 @@ export default function AboutPage() {
 
         {/* Contact Information Card */}
         <div className="p-6 sm:p-8 rounded-2xl bg-[#F5F7FA] border border-[#E4E9EE] space-y-6">
-          <h2 className="text-2xl font-serif-luxury font-bold text-[#12304A]">
-            Contact Information
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h2 className="text-2xl font-serif-luxury font-bold text-[#12304A]">
+              Corporate & Contact Information
+            </h2>
+            <span className="text-xs text-[#556877]">
+              Operated by <strong className="text-[#12304A]">{agencyConfig.legalEntityName}</strong>
+            </span>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-xl bg-white border border-[#E4E9EE] text-[#D8B779] flex items-center justify-center shrink-0">

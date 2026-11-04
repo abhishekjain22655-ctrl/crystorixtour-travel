@@ -162,7 +162,9 @@ export default function Footer() {
         {/* Bottom bar with copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-2">
-            <span>© {currentYear} {agencyConfig.legalEntityName}. All rights reserved.</span>
+            <span>
+              © {currentYear} {agencyConfig.companyName} • Operated by {agencyConfig.legalEntityName}. All rights reserved.
+            </span>
             <Link
               href="/admin"
               title="Staff Console"
